@@ -11,6 +11,10 @@ body {
     flex-direction: column;
 }
 
+.catFact>* {
+    margin: 10px;
+}
+
 .predictAge {
     display: flex;
     justify-content: center;
