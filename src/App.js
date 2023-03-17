@@ -107,7 +107,7 @@ function App() {
             {age?.name}
           </p>
           <p>
-            <span>Predicted Age : </span>
+            <span>Age : </span>
             {age?.age}
           </p>
         </div>
