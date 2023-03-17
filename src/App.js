@@ -85,7 +85,7 @@ function App() {
         </p>
       </div>
       <div className="predictAge">
-        <h1>Predict Age using Name</h1>
+        <h1>Predict Age</h1>
         <div className="inputBox">
           <label htmlFor="name">Enter the name :</label>
           <input
