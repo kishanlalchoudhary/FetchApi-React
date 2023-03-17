@@ -25,7 +25,6 @@ function App() {
   // const [age, setAge] = useState(0);
   const [age, setAge] = useState(null);
   const [excuse, setExcuse] = useState("");
-  const [excuseName, setExecuseName] = useState("");
 
   const fetchCatFact = () => {
     axios
@@ -60,10 +59,9 @@ function App() {
       });
   };
 
-  const generateExcuse = (event) => {
-    setExecuseName(event.target.value);
+  const generateExcuse = (name) => {
     axios
-      .get(`https://excuser-three.vercel.app/v1/excuse/${excuseName}`)
+      .get(`https://excuser-three.vercel.app/v1/excuse/${name}`)
       .then((res) => {
         console.log(res.data[0].excuse);
         setExcuse(res.data[0].excuse);
@@ -78,35 +76,76 @@ function App() {
     <div className="App">
       <div className="catFact">
         <h1>Generate Cat Fact</h1>
-        <button onClick={fetchCatFact}>Generate Cat Fact</button>
-        <p>{catFact}</p>
+        <button className="btn" onClick={fetchCatFact}>
+          Generate Cat Fact
+        </button>
+        <p>
+          <span>Fact : </span>
+          {catFact}
+        </p>
       </div>
       <div className="predictAge">
         <h1>Predict Age using Name</h1>
-        <label htmlFor="name">
-          Enter the name whose age you want to predict
-        </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Ex. Kishanlal..."
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-        />
-        <button onClick={predictAge}>Predict</button>
-        <p>Name: {age?.name}</p>
-        <p>Predicted Age: {age?.age}</p>
-        <p>Count: {age?.count}</p>
+        <div className="inputBox">
+          <label htmlFor="name">Enter the name :</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Ex. Kishanlal..."
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
+        <button className="btn" onClick={predictAge}>
+          Predict
+        </button>
+        <div className="contentBox">
+          <p>
+            <span>Name : </span>
+            {age?.name}
+          </p>
+          <p>
+            <span>Predicted Age : </span>
+            {age?.age}
+          </p>
+        </div>
+        {/* <p>Count: {age?.count}</p> */}
         {/* '?' is used so that page should not brakedown when null is passed*/}
       </div>
       <div className="generateExcuse">
         <h1>Generate An Excuse</h1>
-        <button onClick={generateExcuse}>college</button>
-        <button onClick={generateExcuse}>family</button>
-        <button onClick={generateExcuse}>office</button>
-        <p>Excuse : {excuse}</p>
+        <div className="buttonBox">
+          <button
+            className="btn"
+            onClick={() => {
+              generateExcuse("college");
+            }}
+          >
+            College
+          </button>
+          <button
+            className="btn"
+            onClick={() => {
+              generateExcuse("family");
+            }}
+          >
+            Family
+          </button>
+          <button
+            className="btn"
+            onClick={() => {
+              generateExcuse("office");
+            }}
+          >
+            Office
+          </button>
+        </div>
+        <p>
+          <span>Excuse : </span>
+          {excuse}
+        </p>
       </div>
     </div>
   );
