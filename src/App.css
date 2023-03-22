@@ -1,4 +1,4 @@
-.App{
+.App {
     max-width: 576px;
     margin: 10px;
     height: 100dvh;
@@ -8,23 +8,23 @@
     align-items: center;
 }
 
-h1{
+h1 {
     color: #66fcf1;
 }
 
-p{
+p {
     color: #c5c6c7;
     text-align: center;
     font-size: 20px;
     text-align: justify;
 }
 
-p span{
+p span {
     font-weight: Excuse;
     color: #66fcf1;
 }
 
-.btn{
+.btn {
     border: 2px solid #45a29e;
     background-color: #1f2833;
     border-radius: 5px;
@@ -34,7 +34,7 @@ p span{
     font-weight: bold;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #66fcf1;
     color: black;
 }
@@ -63,20 +63,20 @@ p span{
     margin: 10px;
 }
 
-.inputBox{
+.inputBox {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.inputBox label{
+.inputBox label {
     color: #c5c6c7;
     font-size: 20px;
     color: #66fcf1;
 }
 
-.inputBox input{
+.inputBox input {
     outline: none;
     border: none;
     padding: 10px 15px;
@@ -89,14 +89,14 @@ p span{
     background-color: #66fcf1;
 }
 
-.contentBox{
+.contentBox {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.buttonBox{
+.buttonBox {
     width: 80%;
     display: flex;
     justify-content: space-evenly;

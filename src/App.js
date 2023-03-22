@@ -1,5 +1,6 @@
 import "./App.css";
 import axios from "axios";
+import API from "./axios";
 import { useEffect, useState } from "react";
 
 // Fetching data using fetch Function
@@ -26,6 +27,7 @@ function App() {
   const [age, setAge] = useState(null);
   const [excuse, setExcuse] = useState("");
 
+  // using promises
   const fetchCatFact = () => {
     axios
       .get("https://catfact.ninja/fact")
@@ -37,6 +39,17 @@ function App() {
         console.log(err);
       });
   };
+
+  // using Async Await and Error handling using try and catch
+  // const fetchCatFact = async () => {
+  //   try {
+  //     const res = await axios.get("https://catfact.ninja/fact");
+  //     console.log(res.data)
+  //     setCatFact(res.data.fact);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // useEffect is used to set the catFact when the component is rendered for firts time
   useEffect(() => {
@@ -59,9 +72,9 @@ function App() {
       });
   };
 
+  // Best way to write axios in React App is by creating a axios.js or <filename>.js file
   const generateExcuse = (name) => {
-    axios
-      .get(`https://excuser-three.vercel.app/v1/excuse/${name}`)
+    API.get(`/v1/excuse/${name}`)
       .then((res) => {
         console.log(res.data[0].excuse);
         setExcuse(res.data[0].excuse);
