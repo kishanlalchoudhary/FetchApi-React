@@ -2,28 +2,10 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// Fetching data using fetch Function
-// fetch("https://catfact.ninja/fact")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
-
-// Fetching data using Axios Library
-// axios
-//   .get("https://catfact.ninja/fact")
-//   .then((res) => {
-//     console.log(res.data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
 function App() {
   const [catFact, setCatFact] = useState("");
   const [name, setName] = useState("");
-  // const [age, setAge] = useState(0);
-  const [age, setAge] = useState(null);
+  const [data, setData] = useState(null);
   const [excuse, setExcuse] = useState("");
 
   const fetchCatFact = () => {
@@ -38,7 +20,7 @@ function App() {
       });
   };
 
-  // useEffect is used to set the catFact when the component is rendered for firts time
+  // useEffect is used to set the catFact when the component is rendered for first time
   useEffect(() => {
     fetchCatFact();
   }, []);
@@ -50,12 +32,11 @@ function App() {
       .get(`https://api.agify.io/?name=${name}`)
       .then((res) => {
         console.log(res.data.age);
-        // setAge(res.data.age);
-        setAge(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
-        setAge(0);
+        setData(0);
       });
   };
 
@@ -104,15 +85,13 @@ function App() {
         <div className="contentBox">
           <p>
             <span>Name : </span>
-            {age?.name}
+            {data?.name}
           </p>
           <p>
             <span>Age : </span>
-            {age?.age}
+            {data?.age}
           </p>
         </div>
-        {/* <p>Count: {age?.count}</p> */}
-        {/* '?' is used so that page should not brakedown when null is passed*/}
       </div>
       <div className="generateExcuse">
         <h1>Generate An Excuse</h1>
