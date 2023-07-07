@@ -38,6 +38,3 @@ This is a small project created to learn how to use the Axios library to fetch d
 ```
   https://excuser-three.vercel.app/v1/excuse/${category}
 ```
-
-## [Deployed Project link](https://fetchapi-react.netlify.app/)
-
