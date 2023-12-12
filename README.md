@@ -1,7 +1,7 @@
 
 # FetchApi - React
 
-This is a small project created to learn how to use the Axios library to fetch data in React. The stunning user interface is created using HTML and CSS.
+This is a small project created to learn how to use the Axios library to fetch data in React. The stunning user interface is created using JSX and CSS.
 
 
 ## Features
